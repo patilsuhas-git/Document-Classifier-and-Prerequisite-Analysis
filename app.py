@@ -1,3 +1,5 @@
+#Author: Arun Balchandran
+#Contributor: Suhas Patil
 from waitress import serve
 from flask import Flask, request, redirect, url_for, render_template, flash, session, send_file
 from werkzeug.utils import secure_filename
@@ -68,7 +70,7 @@ def insert_paper_rating(data):
         cursor.execute(query_insert_first_rate, (session['CURRENT_PAPER_TITLE'], data['value'], 1, data['value'], ))
         paper_rating = data['value']
         conn.commit()
-    return paper_rating   
+    return paper_rating
 
 def get_paper_rating():
     conn = mysql.connection
